@@ -5,8 +5,6 @@ function Unipar() {
         <h2>O Taffe é idoso</h2>
     );
 }
-
-
 export default Unipar;
 
 

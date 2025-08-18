@@ -66,3 +66,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.ClasseSucesso {
+  background-color: green;
+  color: white;
+}
+
+.ClasseErro{
+  background-color: red;
+  color: white;
+}
+
+.ClasseAlerta {
+  background-color: yellow;
+  color: black;
+}
