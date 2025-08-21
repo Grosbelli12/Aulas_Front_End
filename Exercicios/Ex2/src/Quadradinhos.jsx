@@ -1,6 +1,6 @@
-function QuadradinhosProps({ ClasseQuadradoPequeno }) {
+function QuadradinhosProps() {
   return (
-    <div className={ClasseQuadradoPequeno}>
+    <div className="QuadradoPequeno">
     </div>
   )
 }

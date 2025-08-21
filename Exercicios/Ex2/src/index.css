@@ -68,64 +68,23 @@ button:focus-visible {
 }
 
 .quadrado-grande {
-  position: static;
-  width: 700px;
-  height: 700px;  
-  background-color: #e1ebe8;
+  width: 580px;  
+  height: 580px; 
   border: 15px solid #0f1239;
-  border-top: 10px solid #0f1239;
-  border-bottom: 10px solid #0f1239;
+  background-color: #e1ebe8;
+  padding: 10px;
+  
 }
 
-#Coluna {
+.linhas {
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: space-between;
-  background-color: #0c0e2c;
-
-}
-  .quadrado-pequeno0{
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background-color: #0c0e2c;
-    top: 15%;
-    border-radius: 10%;
-    margin-left: 9%;
-    top: 12%;
-  }
-
-  .quadrado-pequeno1 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: #0c0e2c;
-  top: 12%;
-  margin-left: 19%;
-  border-radius: 10%
-
+ justify-content:Space-between;
 }
 
-  .quadrado-pequeno2 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: #0c0e2c;
-  top: 12%;
-  margin-left: 29%;
-  border-radius: 10%
+.QuadradoPequeno {
+  width: 180px;  
+  height: 180px; 
+  border-radius: 30px;
+  background-color: #0f1239;
+  margin: 10px;
 }
-
- .quadrado-pequeno3 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: #0c0e2c;
-  top: 12%;
-  margin-left: 39%;
-  border-radius: 10%
-}
-
-
-
