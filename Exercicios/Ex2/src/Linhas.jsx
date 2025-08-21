@@ -1,6 +1,6 @@
-function Linhas({ children }) {
+function Linhas({ children, tipo }) {
   return (
-    <div className="linha">
+    <div className={`linha ${tipo}`}>
       {children}
     </div>
   );

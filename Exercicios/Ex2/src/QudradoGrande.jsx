@@ -1,7 +1,7 @@
-function QuadradoGrandeProps({ClasseQuadradoGrande}) {
+function QuadradoGrandeProps({ children }) {
   return (
-    <div className={ClasseQuadradoGrande}> 
-     {children}
+    <div className="quadrado-grande"> 
+      {children}
     </div>
   );
 }

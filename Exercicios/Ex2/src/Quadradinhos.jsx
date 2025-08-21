@@ -1,7 +1,6 @@
-function QuadradinhosProps() {
+function Quadradinhos() {
   return (
-    <div className="QuadradoPequeno">
-    </div>
-  )
+    <div className="QuadradoPequeno"></div>
+  );
 }
-export default QuadradinhosProps;
+export default Quadradinhos;
