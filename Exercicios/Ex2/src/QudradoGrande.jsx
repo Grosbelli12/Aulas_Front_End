@@ -1,7 +1,8 @@
-function QuadradoGrandeProps({ children }) {
+function QuadradoGrandeProps({ValorCabecalho, ValorA, ValorLadoDireito, ValorRodape}) {
   return (
     <div className="quadrado-grande"> 
-      {children}
+      {ValorCabecalho} {ValorA} {ValorLadoDireito} {ValorRodape}
+    
     </div>
   );
 }
