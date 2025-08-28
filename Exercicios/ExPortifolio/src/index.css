@@ -11,12 +11,12 @@ html, body {
 body{
   width: 100%;
   background-color: #eaeaea;
+  font-family: 'Commissioner', sans-serif;
 }
 
 .header {
-  font-family: 'Commissioner', sans-serif;
   text-transform: capitalize;
-  padding: 3.26vw 19.6vw 0 6.5vw;
+  padding: 2vw 19.6vw 0 14vw;
   position: fixed;
   top: 0;
   width: 100%;
@@ -48,41 +48,42 @@ body{
   color: #000;
 }
 
-
-#Descricao {
-  color: rgb(95, 0, 133);
-  margin: 0;
-  padding: 10px;
-}
-
 .card {
   display: flex;
   align-items: center;
   justify-content: center; 
-  margin-top: 71.2px; 
+  margin-top: 63px; 
   width: 100%;
   flex-grow: 1
 }
 
 .card img {
   width: 50%;
-  height: auto;
+  height: auto; 
   margin-right: auto;
   margin-top: auto;
 }
 
-.card-title {
-  position: relative;
-  bottom: 25vh;
-  right: 50%;
+.card-texto{
+  display: flex;
+  flex-direction: column;
+
 }
 
-.card-description {
-  position: relative;
-  display: flex;
-  top: 25vh;
-  right: 60%;
+#card-cumprimento{
+  color: #6f42c1;
 }
+
+#
+
+.card-texto h1{
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
 
 .rodape {
   background-color: rgb(189, 189, 243);

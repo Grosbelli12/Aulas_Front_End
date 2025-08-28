@@ -14,10 +14,12 @@ function App() {
       />
         <Card
           imagem={imagem}
-          tituloCard="Este sou eu"
-          descricao="Descrição  Bem-vindo ao meu portifólio! Aqui você encontrará uma seleção dos meus melhores trabalhos e projetos.
-      Sinta-se à vontade para explorar e conhecer mais sobre minhas habilidades
-      e experiências profissionais. projeto 1"
+          cumprimento="Hello, i'm"
+          tituloCard= "Gustavo Grosbelli"
+          descricao="Descrição  Bem-vindo ao meu portifólio! Aqui você encontrará uma seleção dos meus melhores
+           trabalhos e projetos.
+        Sinta-se à vontade para explorar e conhecer mais sobre minhas habilidades
+      e experiências profissionais."
         />      
         <Footer 
           Children="Meu Primeiro Portifolio."
