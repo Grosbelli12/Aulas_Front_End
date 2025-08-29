@@ -1,11 +1,8 @@
-function Header(){
-
-    return(
-
-        <div>
-            <p>Meu post</p>
-        </div>
-    )   
+function Header({ titulo }) {
+  return (
+    <header>
+      <p>{titulo}</p>
+    </header>
+  );
 }
-
 export default Header;
