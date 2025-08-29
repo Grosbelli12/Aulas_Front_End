@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  min-height: 100vh;
+  background-color: #242424;
+}
+
+.quadrado-grande {
+  width: 560px;  
+  height: 560px; 
+  border: 15px solid #0f1239;
+  background-color: #e1ebe8;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.linha {
+  display: flex;
+  height: 70px;
+  gap: 70px; 
+}
+
+
+.linha.impar {
+  margin-left: 70px;
+}
+
+
+.linha.par {
+  
+}
+
+.QuadradoPequeno {
+  width: 70px;  
+  height: 70px; 
+  border-radius: 10%;
+  background-color: #0f1239;  
+  flex-shrink: 0; 
+}
