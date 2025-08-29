@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <p>Meu post</p>
+        <Header/>
         <section>
           <p>conteudo do meu post </p>
         </section>
