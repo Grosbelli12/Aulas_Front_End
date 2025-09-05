@@ -12,8 +12,8 @@ function App() {
     setName(event.target.value);
   }
 
-  function mudaSobrenome(event){
-    setLastName(event.target.value)
+  function mudaSobrenome(event) {
+    setLastName(event.target.value);
   }
 
   return (
@@ -24,7 +24,7 @@ function App() {
       <p> Agora via useState : {name} </p>
 
       <p>Informe seu sobrenome</p>
-      <input onChange={mudaSobrenome}/>
+      <input onChange={mudaSobrenome} />
       <p>Seu nome é : {lastname}</p>
     </>
   );
