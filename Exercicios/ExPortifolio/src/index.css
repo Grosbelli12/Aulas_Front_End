@@ -64,7 +64,7 @@ body{
   margin-top: auto;
 }
 
-.card-texto{
+.card-texto{  
   display: flex;
   flex-direction: column;
 
@@ -74,7 +74,6 @@ body{
   color: #6f42c1;
 }
 
-#
 
 .card-texto h1{
   color: #333;
@@ -82,6 +81,11 @@ body{
   font-weight: 700;
   line-height: 1;
   text-transform: capitalize;
+}
+
+.card-description{
+
+ word-break: break-word;
 }
 
 

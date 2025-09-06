@@ -1,9 +1,9 @@
 import { use, useState } from "react";
 
 function ControleNota() {
-  const [name, setName] = useState("Seu nome Aqui");
+  const [name, setName] = useState("");
   const [nota, setNota] = useState(0);
-  const status = nota >= 7 ? "Aprovado " : "Reprovado ";
+  const [result, setResult] = useState();
 
   function pegarNome(event) {
     setName(event.target.value);
@@ -11,6 +11,12 @@ function ControleNota() {
 
   function pegarNota(event) {
     setNota(event.target.value);
+  }
+
+  function exibirResultado() {
+    let status = nota >= 7 ? "Aprovado" : "Reprovado";
+
+    setResult(`O Aluno: ${name} tirou ${nota} e foi ${status}`);
   }
 
   return (
@@ -21,9 +27,8 @@ function ControleNota() {
       <p>Digite a nota do seu aluno:</p>
       <input type="text" onChange={pegarNota} />
 
-      <p>
-        o Aluno: {name} tirou {nota} e foi {status}
-      </p>
+      <button onClick={exibirResultado}>Ver nota do Aluno</button>
+      <p>{result}</p>
     </div>
   );
 }
