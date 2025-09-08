@@ -31,8 +31,8 @@ function Votacao() {
       </button>
 
       <p>
-        O placar é: {opcaoA} votos para opcaoA, {opcaoB} votos para opcaoB e{" "}
-        {opcaoC} votos para opcaoC{" "}
+        O placar é: {opcaoA} votos para opcaoA, {opcaoB} votos para opcaoB e
+        {opcaoC} votos para opcaoC
       </p>
     </div>
   );

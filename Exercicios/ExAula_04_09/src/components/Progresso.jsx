@@ -10,6 +10,7 @@ function Progresso() {
     borderRadius: "5px",
   };
 
+
   function aumentarProgresso() {
     setProgresso(progresso == 100 ? progresso : progresso + 10);
   }
