@@ -8,36 +8,48 @@ import Carrinho from "./components/Carrinho";
 import { use, useState } from "react";
 
 function App() {
-  const [escolha, setEscolha] = useState();
+  const [escolha, setEscolha] = useState("");
+  const [mostraComponente, setMostraComponente] = useState(null);
 
   function pegarEscolha(event) {
-    setEscolha(event.targert.value);
+    setEscolha(event.target.value);
   }
 
   function escolhas() {
+    const opcaoEscolhida =
+      escolha === "1" ? (
+        <LikeDeslike />
+      ) : escolha === "2" ? (
+        <ControleNota />
+      ) : escolha === "3" ? (
+        <Votacao />
+      ) : escolha === "4" ? (
+        <Carrinho />
+      ) : escolha === "5" ? (
+        <Conversor />
+      ) : (
+        <Progresso />
+      );
 
-    const opcaoEscolhida = escolha == "1" ? <LikeDeslike /> : 
-    escolha == "2" ? <ControleNota /> :
-    escolha == "3" ? <Votacao /> :
-    escolha == "4" ? <Carrinho/>:
-    escolha == "5" ? <Conversor />: 
-     <Progresso />
-
-    setEscolha(`${opcaoEscolhida}`)
-   
-;
+    setMostraComponente(opcaoEscolhida);
   }
   return (
     <>
       <p>
-        Escolha qual atividade deseja ver Digite 1 para Like/Deslike 2 para
-        Controle de Nota 3 para Votação de Opções 4 para Controle de Quantidade
-        no Carrinho 5 para Conversor de Temperatura 6 para Barra de Progresso
+        Escolha qual atividade deseja ver Digite 1 - Like/Deslike 
+        2 - Controle de Nota 
+        3 - Votação de Opções 
+        4 - Controle de Quantidade no Carrinho 
+        5 - Conversor de Temperatura 6 para Barra de Progresso
       </p>
-      <input type="text" onChange={pegarEscolha} />
-    <button onClick={escolhas}>Confirmar Escolha</button>
-        <p>{escolha}</p>
 
+      <input type="text" onChange={pegarEscolha} />
+      <button onClick={escolhas}>Confirmar Escolha</button>
+
+      <hr />
+    
+      <p>Você está na atividade: {escolha}</p>
+      {mostraComponente}
     </>
   );
 }

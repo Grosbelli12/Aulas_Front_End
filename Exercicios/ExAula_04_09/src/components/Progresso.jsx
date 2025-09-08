@@ -24,7 +24,7 @@ function Progresso() {
       <button onClick={aumentarProgresso}> +10%</button>
       <button onClick={diminuirProgresso}> -10%</button>
 
-    <p>A barra está: {progresso}% cheia</p>
+    <p>A barra está: {progresso}% cheia </p>
       <div
         style={{
           backgroundColor: "#e0e0de",
