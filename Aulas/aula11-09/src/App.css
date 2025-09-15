@@ -55,6 +55,10 @@ h2 {
   margin-bottom: 15px;
 }
 
+p{
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
 .input-container {
   display: flex;
   gap: 10px;
