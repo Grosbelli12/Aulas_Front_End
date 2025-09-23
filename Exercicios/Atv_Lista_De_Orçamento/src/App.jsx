@@ -7,7 +7,6 @@ function App() {
   const [quantidade, setQuantidade] = useState();
   const [valorUnitario, setValorUnitario] = useState();
   const [listaItem, setListaItem] = useState([]);
-  const [totalgeral, setTotalGeral] = useState()
 
   const adicionarItem = () => {
     if (descricao.trim() === "") {
@@ -24,9 +23,9 @@ function App() {
     setListaItem([...listaItem, novoItem]);
   };
 
-   const totalGeral = listaItem.reduce((acumulador, itemAtual) => {
-    return acumulador + itemAtual.valorUnitario
-  },  0);
+  const totalGeral = listaItem.reduce((acumulador, itemAtual) => {
+    return acumulador + itemAtual.total;
+  }, 0);
 
   const excluirItem = (id) => {
     setListaItem(listaItem.filter((item) => item.id != id));
@@ -34,65 +33,73 @@ function App() {
 
   return (
     <>
-      <div className="input-container">
-        <input
-          type="text"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-          placeholder="Descrição"
-        />
-        <input
-          type="number"
-          value={quantidade}
-          onChange={(e) => setQuantidade(e.target.value)}
-        />
-        <input
-          type="number"
-          value={valorUnitario}
-          onChange={(e) => setValorUnitario(e.target.value)}
-        />
-      </div>
-      <button className="adicionar" onClick={adicionarItem}>
-        +
-      </button>
+      <div className="quadro-orcamento">
+        <h1>Orçamento</h1>
 
-      <table>
-        <thead>
-          <tr>
-            <th className="descricao">Descrição</th>
-            <th className="quantidade">QTD</th>
-            <th className="valor unitario">Unitário</th>
-            <th className="total">Total</th>
-            <th className="acoes">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listaItem.map((item) => (
-            <tr key={item.id}>
-              <th className="descricao">{item.Descricao}</th>
-              <th className="quantidade"> {item.Quantidade}</th>
-              <th className="valor unitario"> {item.ValorUnitario}</th>z
-              <th className="total"> {item.total}</th>
-              <button onClick={() => excluirItem(item.id)} className="excluir">
-                x
-              </button>
+        <div className="input-container">
+          <input
+            id="descrição"
+            type="text"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+            placeholder="Descrição"
+          />
+          <input
+            type="number"
+            value={quantidade}
+            onChange={(e) => setQuantidade(e.target.value)}
+            placeholder="Qtd"
+          />
+          <input
+            type="number"
+            value={valorUnitario}
+            onChange={(e) => setValorUnitario(e.target.value)}
+            placeholder="Valor"
+          />
+          <button className="adicionar" onClick={adicionarItem}>
+            +
+          </button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th className="descricao">Descrição</th>
+              <th className="quantidade">Qtd</th>
+              <th className="valor-unitario">Unitário</th>
+              <th className="total">Total</th>
+              <th className="acoes">Ações</th>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-          <th scope="row" colspan="2">
-            Total Geral
-          </th>
-        </tr>
-
-        <tr>
-          <td>
-            { {totalGeral} }
-          </td>
-        </tr>
-        </tfoot>
-      </table>
+          </thead>
+          <tbody>
+            {listaItem.map((item) => (
+              <tr key={item.id}>
+                <td className="descricao">{item.Descricao}</td>
+                <td className="quantidade">{item.Quantidade}</td>
+                <td className="valor-unitario">
+                  R$ {item.ValorUnitario}
+                </td>
+                <td className="total">R$ {item.total}</td>
+                <td className="acoes">
+                  <button
+                    onClick={() => excluirItem(item.id)}
+                    className="excluir"
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colSpan="5">
+                Total Geral: R$ {totalGeral.toFixed(2)}
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </>
   );
 }
