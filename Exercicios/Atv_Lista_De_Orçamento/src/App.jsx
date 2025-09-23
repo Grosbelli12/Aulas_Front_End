@@ -77,7 +77,6 @@ function App() {
                 x
               </button>
             </tr>
-            
           ))}
         </tbody>
         <tfoot>
