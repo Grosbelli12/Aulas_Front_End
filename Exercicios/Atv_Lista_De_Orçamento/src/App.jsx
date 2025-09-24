@@ -102,7 +102,7 @@ function App() {
           </tbody>
           <tfoot>
             <tr>
-              <th scope="row" colSpan="5">
+              <th scope="row" colSpan="5"> {/* colSpan defina quantas culunas uma unica celula th deve ocupar nesse caso 5 */}
                 Total Geral: R$ {totalGeral.toFixed(2)}
               </th>
             </tr>
