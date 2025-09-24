@@ -38,7 +38,7 @@
   flex-grow: 1; 
 }
 
-
+/* input[type="number"] filtra os input pelo tipo dele */
 .input-container input[type="number"] {
   width: 80px;
   flex-grow: 0; 
@@ -46,7 +46,7 @@
 
 
 .adicionar {
-  background-color: #28a745; /* Verde */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 8px;
@@ -72,7 +72,7 @@ table {
 th, td {
   padding: 12px 15px;
   text-align: left;
-  border: 1px solid #ddd; /* Linha em TODOS os lados */
+  border: 1px solid #ddd; 
   color: #000000;
 }
 
@@ -81,7 +81,8 @@ thead th {
   font-weight: 600;
   color: #000000;
 }
-
+/* :nth-of-type()  ele seleciona um enésio elemento de um tipo específico de um elemento pai no caso osa tr
+e o even é usado para ele selecionar apenas os pares pulando um e dando o efeito de zebra */
 tbody tr:nth-of-type(even) {
   background-color: #f9f9f9;
 }
