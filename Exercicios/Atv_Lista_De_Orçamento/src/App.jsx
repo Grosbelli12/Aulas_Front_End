@@ -13,6 +13,14 @@ function App() {
     if (descricao.trim() === "") {
       alert("Informe uma Descrição");
       return;
+    } else if(quantidade <= 0) {
+      alert("Informe uma Quantidade");
+      return;
+    }else if(valorUnitario <= 0){
+      alert("Informe um valor unitario");
+      return;
+    } else{
+      console.log("funcionou")
     }
 
     const novoItem = {
