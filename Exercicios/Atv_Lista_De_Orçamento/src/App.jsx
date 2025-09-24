@@ -4,15 +4,26 @@ import "./App.css";
 
 function App() {
   const [descricao, setDescricao] = useState("");
-  const [quantidade, setQuantidade] = useState();
-  const [valorUnitario, setValorUnitario] = useState();
+  const [quantidade, setQuantidade] = useState(0);
+  const [valorUnitario, setValorUnitario] = useState(0);
   const [listaItem, setListaItem] = useState([]);
 
   const adicionarItem = () => {
+
     if (descricao.trim() === "") {
       alert("Informe uma Descrição");
       return;
+    } else if (quantidade <= 0) {
+      alert("Informe uma Quantidade");
+      return;
+    } else if (valorUnitario <= 0 ) {
+      alert("Informe um valor unitario");
+      return;
+    } else{
+      console.log("Todos os valores foram informados")
+      return;
     }
+
     const novoItem = {
       id: Date.now(),
       Descricao: descricao,
@@ -21,6 +32,7 @@ function App() {
       total: quantidade * valorUnitario,
     };
     setListaItem([...listaItem, novoItem]);
+  
   };
 
   const totalGeral = listaItem.reduce((acumulador, itemAtual) => {
@@ -47,13 +59,13 @@ function App() {
           <input
             type="number"
             value={quantidade}
-            onChange={(e) => setQuantidade(e.target.value)}
+            onChange={(e) => setQuantidade(Number(e.target.value))}
             placeholder="Qtd"
           />
           <input
             type="number"
             value={valorUnitario}
-            onChange={(e) => setValorUnitario(e.target.value)}
+            onChange={(e) => setValorUnitario(Number(e.target.value))}
             placeholder="Valor"
           />
           <button className="adicionar" onClick={adicionarItem}>
@@ -76,9 +88,7 @@ function App() {
               <tr key={item.id}>
                 <td className="descricao">{item.Descricao}</td>
                 <td className="quantidade">{item.Quantidade}</td>
-                <td className="valor-unitario">
-                  R$ {item.ValorUnitario}
-                </td>
+                <td className="valor-unitario">R$ {item.ValorUnitario}</td>
                 <td className="total">R$ {item.total}</td>
                 <td className="acoes">
                   <button
