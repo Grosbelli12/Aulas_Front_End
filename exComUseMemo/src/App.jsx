@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./App.css";
 
 function App() {
   const [fatorial, setFatorial] = useState(0);
 
+  const resultadoFatorial( () => useMemo {
 
     let resultado = 1;
     for (let i = fatorial; i >= 1; i--) {
       resultado *= i;
     }
-  
+    return resultado
+
+  } [fatorial]);
 
   return (
     <>
