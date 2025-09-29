@@ -31,4 +31,4 @@ function ExComUseState() {
   );
 }
 
-export default App;
+export default ExComUseState;
