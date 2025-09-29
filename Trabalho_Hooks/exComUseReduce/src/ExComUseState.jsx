@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+// exemplo demostrativo do código sem o useState 
+// onde podemos ver que preciso criar 3 funções separadas, onde cada uma moifica o estado de um jeito diferente
+// já como vimos com o useReducer, fazemos isso com apenas uma única função 
+
 function ExComUseState() {
 
   const [contador, setContador] = useState(0);
