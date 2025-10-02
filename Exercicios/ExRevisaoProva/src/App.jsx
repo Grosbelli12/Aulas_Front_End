@@ -1,5 +1,7 @@
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 import "./App.css";
+import TaskForm from "./components/TaskForm.JSX";
+import TaskList from "./components/TaskList";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -32,8 +34,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         listaTarefas: [
-          ...state.listaTarefas.filter((tarefa) => tarefa.id !==   action.payload),
+          ...state.listaTarefas.filter(
+            (tarefa) => tarefa.id !== action.payload
+          ),
         ],
+      };
+    case "CARREGAR_TAREFAS":
+      return {
+        ...state,
+        listaTarefas: action.payload,
       };
     default:
       return state;
@@ -52,89 +61,26 @@ function App() {
     return acumulador + tarefaAtual.custo;
   }, 0);
 
+  // Carrega os dados do localStorage quando o componente é montado
+  useEffect(() => {
+    dispatch({
+      type: "CARREGAR_TAREFAS",
+
+      payload: JSON.parse(localStorage.getItem("LISTA_TAREFA")),
+    });
+  }, []);
+
+  useEffect(() => {
+    // Salva os dados no localStorage sempre que a lista de tarefas muda
+    localStorage.setItem("LISTA_TAREFA", JSON.stringify(state.listaTarefas));
+  }, [state.listaTarefas]);
+
   return (
     <>
       <div className="todo-container">
         <h2>Lista de Tarefas ✅</h2>
-
-        <div className="input-container">
-          <input
-            type="text"
-            value={state.tarefa}
-            onChange={(e) =>
-              dispatch({ type: "ATUALIZAR_TAREFA", payload: e.target.value })
-            }
-            placeholder="Digite uma tarefa"
-          />
-
-          <input
-            type="number"
-            value={state.horas}
-            onChange={(e) =>
-              dispatch({
-                type: "ATUALIZAR_HORAS",
-                payload: Number.parseFloat(e.target.value),
-              })
-            }
-            placeholder="Tempo (horas)"
-          />
-
-          <input
-            type="number"
-            value={state.valorHora}
-            onChange={(e) =>
-              dispatch({
-                type: "ATUALIZAR_VALOR_HORA",
-                payload: Number.parseFloat(e.target.value),
-              })
-            }
-            placeholder="Valor p/ Hora"
-          />
-          <button
-            className="adicionar"
-            onClick={() => dispatch({ type: "ADICIONAR" })}
-          >
-            +
-          </button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th className="descricao">Nome da Tarefa</th>
-              <th className="horas">Horas</th>
-              <th className="valor-hora">Valor p/ Hora</th>
-              <th className="total">Custo</th>
-              <th className="acoes">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {state.listaTarefas.map((tarefa) => (
-              <tr key={tarefa.id}>
-                <td className="NomeTarefa">{tarefa.NomeTarefa}</td>
-                <td className="horas">{tarefa.horas}</td>
-                <td className="valorHora">R$ {tarefa.valorHora.toFixed(2)}</td>
-                <td className="custo">R$ {tarefa.custo.toFixed(2)}</td>
-                <td className="acoes">
-                  <button
-                    onClick={() =>
-                      dispatch({ type: "EXCLUIR_TAREFA", payload: tarefa.id })
-                    }
-                    className="excluir"
-                  >
-                    X
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row" colSpan="5">
-                Total Geral: R$ {totalGeral.toFixed(2)}
-              </th>
-            </tr>
-          </tfoot>
-        </table>
+        <TaskForm state={state} dispatch={dispatch} />
+        <TaskList state={state} dispatch={dispatch} totalGeral={totalGeral} />
       </div>
     </>
   );
