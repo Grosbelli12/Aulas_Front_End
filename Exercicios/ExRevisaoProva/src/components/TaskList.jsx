@@ -1,3 +1,5 @@
+import TaskItem from "./TaskItem"; 
+
 const TaskList = ({ state, dispatch, totalGeral }) => {
   return (
     <table>
@@ -12,22 +14,7 @@ const TaskList = ({ state, dispatch, totalGeral }) => {
       </thead>
       <tbody>
         {state.listaTarefas.map((tarefa) => (
-          <tr key={tarefa.id}>
-            <td className="NomeTarefa">{tarefa.NomeTarefa}</td>
-            <td className="horas">{tarefa.horas}</td>
-            <td className="valorHora">R$ {tarefa.valorHora.toFixed(2)}</td>
-            <td className="custo">R$ {tarefa.custo.toFixed(2)}</td>
-            <td className="acoes">
-              <button
-                onClick={() =>
-                  dispatch({ type: "EXCLUIR_TAREFA", payload: tarefa.id })
-                }
-                className="excluir"
-              >
-                X
-              </button>
-            </td>
-          </tr>
+          <TaskItem key={tarefa.id} tarefa={tarefa} dispatch={dispatch} />
         ))}
       </tbody>
       <tfoot>
