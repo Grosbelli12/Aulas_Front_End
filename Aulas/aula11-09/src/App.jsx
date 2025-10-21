@@ -7,15 +7,13 @@ import "./App.css";
 
 function App() {
   const [tarefa, setTarefa] = useState("");
-  const [listaTarefas, setListaTarefas] = useState([]);
-
-  useEffect(() => {
-    setListaTarefas(JSON.parse(localStorage.getItem("LISTA_TAREFA")));
-  }, []);
+  const [listaTarefas, setListaTarefas] = useState(() => {
+    return JSON.parse(localStorage.getItem("LISTA_TAREFA")) || [];
+  });
 
   useEffect(() => {
     localStorage.setItem("LISTA_TAREFA", JSON.stringify(listaTarefas));
-  }, [listaTarefas])
+  }, [listaTarefas]);
 
   const adicionarTarefa = () => {
     if (tarefa.trim() === "") {

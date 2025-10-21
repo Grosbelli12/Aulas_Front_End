@@ -4,8 +4,8 @@ import "./App.css";
 
 function App() {
   const [descricao, setDescricao] = useState("");
-  const [quantidade, setQuantidade] = useState(0);
-  const [valorUnitario, setValorUnitario] = useState(0);
+  const [quantidade, setQuantidade] = useState();
+  const [valorUnitario, setValorUnitario] = useState();
   const [listaItem, setListaItem] = useState([]);
 
   const adicionarItem = () => {
@@ -28,15 +28,14 @@ function App() {
       Descricao: descricao,
       Quantidade: quantidade,
       ValorUnitario: valorUnitario,
-      total: quantidade * valorUnitario,
+      total: quantidade * valorUnitario,    
     };
     setListaItem([...listaItem, novoItem]);
-  
   };
 
-  const totalGeral = listaItem.reduce((acumulador, itemAtual) => {
-    return acumulador + itemAtual.total;
-  }, 0);
+    const totalGeral = listaItem.reduce((acumulador, itemAtual) => {
+      return acumulador + itemAtual.total;
+    }, 0);
 
   const excluirItem = (id) => {
     setListaItem(listaItem.filter((item) => item.id != id));
@@ -54,7 +53,7 @@ function App() {
             value={descricao}
             onChange={(e) => setDescricao(e.target.value)}
             placeholder="Descrição"
-          />
+          />  
           <input
             type="number"
             value={quantidade}
